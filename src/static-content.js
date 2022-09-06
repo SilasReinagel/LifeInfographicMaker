@@ -8,7 +8,7 @@ const site = ({
   logoMobile: './favicon.png',
   address: null,
   contactPrompt: 'Send me a message',
-  sourceCode: 'https://github.com/SilasReinagel/LiteCatalogueTile',
+  sourceCode: 'https://github.com/SilasReinagel/LiteInfoGraphicMaker',
   social: {
     twitter: 'https://twitter.com/SilasReinagel',
     github: 'https://github.com/SilasReinagel',

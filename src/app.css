@@ -52,7 +52,7 @@ hr {
 html {
   background-color: var(--main-background-color);
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
-  background-image: url('/bg3.jpg');
+  background-image: url('/img/bg3.jpg');
 
   background-position: top;
   background-repeat: repeat-y;

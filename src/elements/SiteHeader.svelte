@@ -13,7 +13,7 @@
 <header class="">
   <nav class="navbar-left">
     <a class="company-logo" href="./">
-      <img class="title" src="/site-title.png" alt="Title"/>
+      <img class="title" src="/site-title.png" alt="Title" width="400px" height="41px"/>
     </a>
   </nav>
   <SiteSidebar bind:open={sidebarOpen} />

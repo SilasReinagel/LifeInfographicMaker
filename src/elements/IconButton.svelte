@@ -1,10 +1,13 @@
 <script>
   export let name, icon, onClick, isMobileHidden = false, small = false;
+
+	const width = small ? '24px' : '36px';
+	const height = width; 
 </script>
 
 <button on:click={onClick} class={isMobileHidden ? "mobile-hidden" : ""}>
   <div class={"icon tooltip" + (small ? " small" : "")}>
-    <img src={icon} alt={name}/>
+    <img src={icon} alt={name} width={width} height={height}/>
     <div class="tooltiptext">{name}</div>
   </div>
 </button>
@@ -18,6 +21,7 @@
 
 	button:hover {
 		background-color: var(--button-hover-color);
+		border-radius: 12px;
 	}
 
 	.icon {

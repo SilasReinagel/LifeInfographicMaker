@@ -1,6 +1,6 @@
 const createStyling = () => ({
     colors: {
-      backgroundColor: '#00acd8',
+      background: '#00acd8',
     }
 });
 
@@ -30,7 +30,7 @@ const createBasicData = () => ({
 const createSampleBasicData = () => JSON.parse(`{
   "styling": {
     "colors": {
-      "backgroundColor": "#00acd8"
+      "background": "#00acd8"
     }
   },
   "basicData": {

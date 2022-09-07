@@ -261,3 +261,11 @@ html {
   visibility: visible;
   z-index: 100;
 }
+
+.waitUntilLoaded {
+  display: block !important;
+}
+
+.whileLoading {
+  display: none !important;
+}

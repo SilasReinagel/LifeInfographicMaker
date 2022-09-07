@@ -14,31 +14,29 @@
   const exportElementId = "catalog-tile";
 
   let mode = 'Edit';
-
-  console.log('Render');
+  let beginUpload;
+	const onJsonImport = j => cardData.set(JSON.parse(j));
   const createNew = () => cardData.set(createNewCardData());
   const useEditMode = () => mode = 'Edit';
   const useViewMode = () => mode = 'View';
   const exportJson = () => saveTxtFile(JSON.stringify($cardData, null, 2), 'InfographicData-' + new Date().getTime() + '.json'); 
-  let beginUpload;
-	const onJsonImport = j => cardData.set(JSON.parse(j));
 </script>
 
-<main>
+<main class="waitUntilLoaded">
   <TextFileUpload onTextLoaded={onJsonImport} bind:selectFile={beginUpload}/>
 	<DefaultLayout pageName="App">
     <div class="full-app mobile-hidden">
       <div class="controls-bar column">
         <div class="column">
           {#if mode === 'View'}
-          <IconButton name="Edit" icon="./edit-button.png" onClick={useEditMode} />
+          <IconButton name="Edit" icon="./img/edit-button.png" onClick={useEditMode} />
           <ExportButton elementId={exportElementId}/>
-          <IconButton name="Save" icon="./save.png" onClick={exportJson} /> 
+          <IconButton name="Save" icon="./img/save.png" onClick={exportJson} /> 
           {/if}
           {#if mode === 'Edit'}
-          <IconButton name="View" icon="./preview.png" onClick={useViewMode} /> 
-          <IconButton name="New" icon="./doc.png" onClick={createNew} /> 
-          <IconButton name="Open" icon="./folder.png" onClick={beginUpload} />    
+          <IconButton name="View" icon="./img/preview.png" onClick={useViewMode} /> 
+          <IconButton name="New" icon="./img/doc.png" onClick={createNew} /> 
+          <IconButton name="Open" icon="./img/folder.png" onClick={beginUpload} />    
           {/if}
         </div>
       </div>
@@ -48,21 +46,23 @@
       {#if mode === 'Edit'}
       <CatalogEditor elementId='catalog-editor' {...$cardData}/>
       {/if}
-      <!-- <div class="center-vh product-hunt">
+      <!-- <div class="center-vh product-hunt"> -- Implement Later
         <ProductHunt/>
       </div> -->
       <div class="spacer-2"/>
-      <!-- <FeedbackForm/> -->
+      <!-- <FeedbackForm/> Implement Later -->
     </div>
     <div class="mobile">
       <div class="mobile-warning-ctn center-vh">
-        <h2 class="mobile-warning">This App only support Desktop computers currently. Try using your PC/Mac</h2>
+        <h2 class="mobile-warning">This App only supports Desktop computers currently. Try using your PC/Mac</h2>
       </div>
     </div>
 	</DefaultLayout>
 </main>
 
-<main>
+<main class="whileLoading center-vh">
+  <h1>Lite Infographic Maker</h1>
+  <h1>...Loading...</h1>
 </main>
 
 <style>
@@ -89,16 +89,6 @@
 		height: 4em;
 	}
 
-	.tiles {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		justify-content: center;
-		max-width: 64em;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
 	.controls-bar {
     top: 50%;    
     transform: translateY(-50%);
@@ -107,7 +97,6 @@
     margin-left: 36px;
     min-height: 108px;
 
-		/* width: 100%; */
 		background-color: var(--header-secondary-background-color);
     background-color: #fff;
     border-radius: 12px;
@@ -116,15 +105,13 @@
     border-bottom: 1px solid var(--header-border-color);
 	}
 
-	.row {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
   .column {
     display: flex;
     flex-direction: column;
+  }
+
+  .waitUntilLoaded {
+    display: none;
   }
 
 	@media (min-width: 640px) {

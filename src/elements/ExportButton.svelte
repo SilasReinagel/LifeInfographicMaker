@@ -10,4 +10,4 @@
   }
 </script>
 
-<IconButton name="Export Jpeg" onClick={onClick} isMobileHidden={false} icon="./photo2.png" />
+<IconButton name="Export Jpeg" onClick={onClick} isMobileHidden={false} icon="./img/photo2.png" />

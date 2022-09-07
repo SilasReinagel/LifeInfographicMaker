@@ -32,9 +32,12 @@
     detail2.items = removedElementByIndex(detail2.items, index);
     detail2 = detail2;
   }
+
+  const addIcon = './img/add-white.png';
+  const removeIcon = './img/remove-white.png';
 </script>
 
-<div id={elementId} class="card" style={`background-color: ${styling.colors.background}`}>
+<div id={elementId} class="card">
   <div class="inner">
     <h2>Basic Info</h2>
     <div class="row">
@@ -57,18 +60,22 @@
       <div class="label">Image 2 URL:</div>
       <input bind:value={basicData.altPhoto}/>
     </div>
+    <div class="row">
+      <div class="label">Background Color:</div>
+      <input class="color-picker" type="color" bind:value={styling.colors.background} />
+    </div>
 
     <hr/>
     <div class="row">
       <h2>Core Facts</h2>
-      <IconButton name='Add' icon="./add-white.png" onClick={addFact} small={true}/>
+      <IconButton name='Add' icon={addIcon} onClick={addFact} small={true}/>
     </div>
     {#each coreFacts as fact, i}
 
       <div class="row">
         <div class="label">Fact Title:</div>
         <input bind:value={fact.title}/><br>
-        <IconButton name='Remove' icon="./remove-white.png" onClick={() => removeFact(i)} small={true}/>
+        <IconButton name='Remove' icon={removeIcon} onClick={() => removeFact(i)} small={true}/>
       </div>
       <div class="row">
         <div class="label">Description:</div>
@@ -79,7 +86,7 @@
 
     <div class="row">
       <h2>Detail Pane 1</h2>
-      <IconButton name='Add' icon="./add-white.png" onClick={addDetail1} small={true}/>
+      <IconButton name='Add' icon={addIcon} onClick={addDetail1} small={true}/>
     </div>
     <div class="row">
       <div class="label">Title:</div>
@@ -89,14 +96,14 @@
     <div class="row">
       <div class="label">Detail:</div>
       <input bind:value={detail}/>
-      <IconButton name='Remove' icon="./remove-white.png" onClick={() => removeDetail1(i)} small={true}/>
+      <IconButton name='Remove' icon={removeIcon} onClick={() => removeDetail1(i)} small={true}/>
     </div>
     {/each}
     <hr/>
 
     <div class="row">
       <h2>Detail Pane 2</h2>
-      <IconButton name='Add' icon="./add-white.png" onClick={addDetail2} small={true}/>
+      <IconButton name='Add' icon={addIcon} onClick={addDetail2} small={true}/>
     </div>
     <div class="row">
       <div class="label">Title:</div>
@@ -106,7 +113,7 @@
     <div class="row">
       <div class="label">Detail:</div>
       <input bind:value={detail}/>
-      <IconButton name='Remove' icon="./remove-white.png" onClick={() => removeDetail2(i)} small={true}/>
+      <IconButton name='Remove' icon={removeIcon} onClick={() => removeDetail2(i)} small={true}/>
     </div>
     {/each}
   </div>
@@ -120,6 +127,11 @@
     width: 540px;
     max-width: 80vw; 
     margin: 0.1em;
+    border-radius: 4px;
+  }
+  
+  .color-picker {
+    padding: 0 0.1em;
   }
 
   .row {

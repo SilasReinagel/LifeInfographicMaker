@@ -36,8 +36,8 @@ const createSampleBasicData = () => JSON.parse(`{
   "basicData": {
     "title": "Infographics For Next-Gen Communication",
     "link": {
-      "title": "Try It Yourself - https://liteinfographicmaker.app",
-      "url": "https://liteinfographicmaker.app"
+      "title": "Try It Yourself - https://liteinfographicmaker.netlify.app",
+      "url": "https://liteinfographicmaker.netlify.app"
     },
     "mainPhoto": "/img/use-infographics.jpg",
     "altPhoto": "/img/lite-infographic-maker.jpg"
